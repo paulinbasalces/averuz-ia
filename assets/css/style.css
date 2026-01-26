@@ -1,42 +1,58 @@
+/* =========================================
+   1. Variáveis & Tokens de Design
+   ========================================= */
 :root {
-    /* Cores Exatas do Canva */
     --bg-primary: #F7F8FA;
     --bg-card: #FFFFFF;
     --bg-authority: #231961;
+    --bg-authority-soft: #E6E8F5;
+    
     --brand-primary: #4A0A7E;
     --brand-accent: #D99A08;
+    
     --success: #2FA37C;
     --error: #D10B68;
+    
     --text-primary: #0F172A;
     --text-secondary: #475569;
+    --text-light: #FFFFFF;
+    
+    --border-subtle: #E1E4E8;
 }
 
+/* =========================================
+   2. Tipografia & Reset
+   ========================================= */
 html { scroll-behavior: smooth; }
-
 body {
     font-family: 'Lexend', sans-serif;
     background-color: var(--bg-primary);
     color: var(--text-primary);
     overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
 }
-
 h1, h2, h3, h4, h5, h6, .font-display { font-family: 'Sora', sans-serif; }
 
-/* Botões */
+/* =========================================
+   3. Componentes de Interface
+   ========================================= */
 .btn-primary {
     background-color: var(--brand-accent);
     color: var(--bg-authority);
     font-family: 'Sora', sans-serif;
     font-weight: 700;
-    transition: transform 0.2s ease, filter 0.2s ease;
+    transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
 }
 .btn-primary:hover {
-    transform: translateY(-2px);
     filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(217, 154, 8, 0.3);
+}
+.btn-primary:focus-visible {
+    outline: 3px solid var(--brand-accent);
+    outline-offset: 2px;
 }
 
 .btn-secondary {
@@ -52,41 +68,98 @@ h1, h2, h3, h4, h5, h6, .font-display { font-family: 'Sora', sans-serif; }
 }
 .btn-secondary:hover {
     background: var(--brand-primary);
-    color: #FFF;
+    color: var(--text-light);
+    transform: translateY(-2px);
 }
 
-/* Cards (Estilo Canva - Sombra Suave) */
 .card-elevated {
     background: var(--bg-card);
-    border: 1px solid #E2E8F0;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--border-subtle);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .card-elevated:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-/* Animações Originais */
+/* =========================================
+   4. Animações Core (Portadas do Canva)
+   ========================================= */
+
+/* Flutuação suave */
 @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
 }
 .animate-float { animation: float 6s ease-in-out infinite; }
 
+/* Pulso de brilho */
 @keyframes pulse-glow {
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.6; transform: scale(1.1); }
 }
 .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
 
+/* Entradas */
 @keyframes fade-in-up {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
-.animate-fade-in-up { animation: fade-in-up 0.6s ease-out forwards; opacity: 0; }
+.animate-fade-in-up {
+    opacity: 0;
+    animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
 
-/* Utilitários */
+@keyframes slide-in-left {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+.animate-slide-left { animation: slide-in-left 0.8s ease-out forwards; }
+
+@keyframes slide-in-right {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+.animate-slide-right { animation: slide-in-right 0.8s ease-out forwards; }
+
+/* Background Flows (Crucial para a seção roxa) */
+@keyframes subtle-flow {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.03; }
+    33% { transform: translate(20px, -15px) scale(1.05); opacity: 0.04; }
+    66% { transform: translate(-15px, 10px) scale(0.98); opacity: 0.025; }
+}
+
+@keyframes ambient-flow-1 {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.04; }
+    25% { transform: translate(15px, -10px) scale(1.03); opacity: 0.035; }
+    50% { transform: translate(25px, 5px) scale(1.05); opacity: 0.03; }
+    75% { transform: translate(10px, 15px) scale(1.02); opacity: 0.0375; }
+}
+
+@keyframes ambient-flow-2 {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.03; }
+    33% { transform: translate(-20px, 10px) scale(0.98); opacity: 0.025; }
+    66% { transform: translate(-10px, -15px) scale(1.02); opacity: 0.035; }
+}
+
+@keyframes ambient-flow-3 {
+    0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 0.025; }
+    40% { transform: translate(18px, 12px) scale(1.04) rotate(1deg); opacity: 0.03; }
+    80% { transform: translate(-12px, 8px) scale(0.97) rotate(-1deg); opacity: 0.02; }
+}
+
+/* Delays */
 .delay-100 { animation-delay: 0.1s; }
 .delay-200 { animation-delay: 0.2s; }
 .delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+
+/* Acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
