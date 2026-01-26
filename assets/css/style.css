@@ -1,61 +1,43 @@
-/* DESIGN TOKENS EXTRAÍDOS DO CANVA SOURCE */
-:root {
-    --bg-primary: #F7F8FA;
-    --bg-card: #FFFFFF;
-    --bg-authority: #231961;
-    --brand-primary: #4A0A7E;
-    --brand-accent: #D99A08;
-    --success: #2FA37C;
-    --error: #D10B68;
-    --text-primary: #0F172A;
-    --text-secondary: #475569;
-    --border-subtle: #E2E8F0;
-}
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. Menu Mobile Toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-html { scroll-behavior: smooth; }
-body {
-    font-family: 'Lexend', sans-serif;
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    -webkit-font-smoothing: antialiased;
-}
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
-h1, h2, h3, h4, h5, h6, .font-display { font-family: 'Sora', sans-serif; }
+        // Fechar ao clicar em links
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+    }
 
-/* COMPONENTES ORIGINAIS */
-.btn-primary {
-    background-color: var(--brand-accent);
-    color: var(--bg-authority);
-    font-family: 'Sora', sans-serif;
-    font-weight: 700;
-    transition: all 0.2s ease;
-}
-.btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    // 2. IntersectionObserver para Animações
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
 
-.btn-secondary {
-    background: transparent;
-    color: var(--brand-primary);
-    border: 2px solid var(--brand-primary);
-    font-family: 'Sora', sans-serif;
-    font-weight: 600;
-    transition: all 0.2s ease;
-}
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-.card-elevated {
-    background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-}
-
-/* FÍSICA DE ANIMAÇÃO */
-@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
-.animate-float { animation: float 6s ease-in-out infinite; }
-
-@keyframes pulse-glow { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-.pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
-
-@keyframes fade-in-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.animate-fade-in-up { opacity: 0; animation: fade-in-up 0.8s ease-out forwards; }
-
-/* PADRÕES DE FUNDO ORIGINAIS */
-.bg-dots { background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z&quot; fill=&quot;%23fff&quot; fill-opacity=&quot;0.05&quot;/%3E%3C/svg%3E'); }
+    // 3. Scroll Suave para Âncoras
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
