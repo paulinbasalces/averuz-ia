@@ -1,88 +1,105 @@
 /* =========================================
-   1. DESIGN TOKENS (ROOT)
+   1. DESIGN TOKENS (Literais do Original)
    ========================================= */
 :root {
-  --bg-authority: #231961;
   --bg-primary: #F7F8FA;
+  --bg-card: #FFFFFF;
+  --bg-authority: #231961;
+  --bg-authority-soft: #E6E8F5;
   --brand-primary: #4A0A7E;
   --brand-accent: #D99A08;
   --success: #2FA37C;
   --error: #D10B68;
   --text-primary: #0F172A;
   --text-secondary: #475569;
+  --text-light: #FFFFFF;
   --border-subtle: #E1E4E8;
 }
 
+body { box-sizing: border-box; }
+.font-body { font-family: 'Lexend', sans-serif; }
+.font-display { font-family: 'Sora', sans-serif; }
+
 /* =========================================
-   2. FÍSICA DE ANIMAÇÃO
+   2. ANIMAÇÕES ORIGINAIS
    ========================================= */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+@keyframes pulse-glow { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+@keyframes slide-in { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes subtle-flow { 
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.03; }
+    33% { transform: translate(20px, -15px) scale(1.05); opacity: 0.04; }
+    66% { transform: translate(-15px, 10px) scale(0.98); opacity: 0.025; }
 }
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.05); }
-}
-
-@keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 @keyframes ambient-flow-1 {
-  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.04; }
-  50% { transform: translate(25px, 5px) scale(1.05); opacity: 0.03; }
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.04; }
+    25% { transform: translate(15px, -10px) scale(1.03); opacity: 0.035; }
+    50% { transform: translate(25px, 5px) scale(1.05); opacity: 0.03; }
+    75% { transform: translate(10px, 15px) scale(1.02); opacity: 0.0375; }
 }
-
 @keyframes ambient-flow-2 {
-  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.03; }
-  50% { transform: translate(-20px, 10px) scale(0.98); opacity: 0.035; }
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.03; }
+    33% { transform: translate(-20px, 10px) scale(0.98); opacity: 0.025; }
+    66% { transform: translate(-10px, -15px) scale(1.02); opacity: 0.035; }
 }
-
-@keyframes subtle-flow {
-  0%, 100% { transform: translate(0, 0); opacity: 0.03; }
-  50% { transform: translate(20px, -15px); opacity: 0.04; }
+@keyframes ambient-flow-3 {
+    0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 0.025; }
+    40% { transform: translate(18px, 12px) scale(1.04) rotate(1deg); opacity: 0.03; }
+    80% { transform: translate(-12px, 8px) scale(0.97) rotate(-1deg); opacity: 0.02; }
 }
+@keyframes fade-in-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes scale-in { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+@keyframes slide-in-left { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slide-in-right { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
 
-/* Classes de Gatilho para IntersectionObserver */
-.reveal { opacity: 0; }
-.reveal.animated { animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+/* Classes de Gatilho */
+.animate-fade-in-up { opacity: 0; animation: fade-in-up 0.8s ease-out forwards; }
+.animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+.animate-on-scroll.animated { opacity: 1; transform: translateY(0); }
+.animate-scale-on-scroll { opacity: 0; transform: scale(0.95); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+.animate-scale-on-scroll.animated { opacity: 1; transform: scale(1); }
+.animate-slide-left { opacity: 0; transform: translateX(-30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+.animate-slide-left.animated { opacity: 1; transform: translateX(0); }
+.animate-slide-right { opacity: 0; transform: translateX(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+
+.animate-delay-1 { animation-delay: 0.2s; transition-delay: 0.1s; }
+.animate-delay-2 { animation-delay: 0.4s; transition-delay: 0.2s; }
+.animate-delay-3 { animation-delay: 0.6s; transition-delay: 0.3s; }
+.animate-delay-4 { animation-delay: 1s; transition-delay: 0.4s; }
+
+.float-animation { animation: float 3s ease-in-out infinite; }
+.pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+.conversation-item { animation: slide-in 0.5s ease-out forwards; opacity: 0; }
 
 /* =========================================
-   3. ESTILOS BASE E COMPONENTES
+   3. COMPONENTES
    ========================================= */
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Lexend', sans-serif;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  overflow-x: hidden;
-}
-
 .btn-primary {
-  background-color: var(--brand-accent);
+  background: var(--brand-accent);
   color: var(--bg-authority);
+  font-family: 'Sora', sans-serif;
   font-weight: 700;
   transition: all 0.2s ease;
 }
+.btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+.btn-primary:focus { outline: 3px solid var(--brand-accent); outline-offset: 2px; }
 
 .btn-secondary {
   background: transparent;
   color: var(--brand-primary);
   border: 2px solid var(--brand-primary);
+  font-family: 'Sora', sans-serif;
   font-weight: 600;
   transition: all 0.2s ease;
 }
+.btn-secondary:hover { background: var(--brand-primary); color: var(--text-light); }
 
 .card-elevated {
-  background: #FFFFFF;
+  background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   box-shadow: 0 4px 24px rgba(0,0,0,0.06);
 }
 
-/* Redução de Movimento (A11y) */
 @media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
