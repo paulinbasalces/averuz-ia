@@ -1,5 +1,5 @@
 /* =========================================
-   1. Design Tokens & Variáveis [cite: 8-9]
+   1. Design Tokens (Fidelidade ao Original)
    ========================================= */
 :root {
     --bg-primary: #F7F8FA;
@@ -17,7 +17,7 @@
 }
 
 /* =========================================
-   2. Tipografia & Reset [cite: 6-10]
+   2. Reset & Tipografia
    ========================================= */
 html { scroll-behavior: smooth; }
 body {
@@ -30,10 +30,10 @@ body {
 h1, h2, h3, h4, h5, h6, .font-display { font-family: 'Sora', sans-serif; }
 
 /* =========================================
-   3. Componentes [cite: 11-19]
+   3. Componentes de Interface
    ========================================= */
 .btn-primary {
-    background: var(--brand-accent);
+    background-color: var(--brand-accent);
     color: var(--bg-authority);
     font-family: 'Sora', sans-serif;
     font-weight: 700;
@@ -61,11 +61,10 @@ h1, h2, h3, h4, h5, h6, .font-display { font-family: 'Sora', sans-serif; }
     background: var(--bg-card);
     border: 1px solid var(--border-subtle);
     box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* =========================================
-   4. Animações Originais [cite: 20-67]
+   4. Física de Animação (Extraída do Canva)
    ========================================= */
 @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
 .animate-float { animation: float 6s ease-in-out infinite; }
@@ -76,21 +75,14 @@ h1, h2, h3, h4, h5, h6, .font-display { font-family: 'Sora', sans-serif; }
 @keyframes fade-in-up { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 .animate-fade-in-up { opacity: 0; animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
-@keyframes subtle-flow { 0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.03; } 33% { transform: translate(20px, -15px) scale(1.05); opacity: 0.04; } 66% { transform: translate(-15px, 10px) scale(0.98); opacity: 0.025; } }
-@keyframes ambient-flow-1 { 0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.04; } 25% { transform: translate(15px, -10px) scale(1.03); opacity: 0.035; } 50% { transform: translate(25px, 5px) scale(1.05); opacity: 0.03; } 75% { transform: translate(10px, 15px) scale(1.02); opacity: 0.0375; } }
-@keyframes ambient-flow-2 { 0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.03; } 33% { transform: translate(-20px, 10px) scale(0.98); opacity: 0.025; } 66% { transform: translate(-10px, -15px) scale(1.02); opacity: 0.035; } }
-@keyframes ambient-flow-3 { 0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 0.025; } 40% { transform: translate(18px, 12px) scale(1.04) rotate(1deg); opacity: 0.03; } 80% { transform: translate(-12px, 8px) scale(0.97) rotate(-1deg); opacity: 0.02; } }
+@keyframes ambient-flow-1 { 0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.04; } 50% { transform: translate(25px, 5px) scale(1.05); opacity: 0.03; } }
+@keyframes ambient-flow-2 { 0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.03; } 33% { transform: translate(-20px, 10px) scale(0.98); opacity: 0.025; } }
 
-.animate-delay-1 { animation-delay: 0.2s; }
-.animate-delay-2 { animation-delay: 0.4s; }
-.animate-delay-3 { animation-delay: 0.6s; }
-.animate-delay-4 { animation-delay: 0.8s; }
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
 
 /* Acessibilidade */
 @media (prefers-reduced-motion: reduce) {
-    *, ::before, ::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
+    *, ::before, ::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
