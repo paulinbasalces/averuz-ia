@@ -1,232 +1,205 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Averuz | Atendimento que vende. Tecnologia que aproxima.</title>
+    <title>Averuz | Tecnologia que aproxima.</title>
     
-    <meta name="description" content="Plataforma completa de atendimento e vendas com inteligência artificial para empresas que querem crescer.">
+    <meta name="description" content="Plataforma completa de atendimento e vendas com inteligência artificial.">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Averuz. Atendimento que vende. Tecnologia que aproxima.">
     <meta name="twitter:card" content="summary_large_image">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Averuz",
-      "offers": [
-        { "@type": "Offer", "name": "Essencial", "price": "197" },
-        { "@type": "Offer", "name": "Growth", "price": "897" },
-        { "@type": "Offer", "name": "Premium", "price": "1997" }
-      ]
-    }
-    </script>
     
     <link rel="icon" type="image/png" href="assets/img/averuz-ia-logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="bg-[#F7F8FA] text-[#0F172A] font-body antialiased">
 
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-[#E1E4E8] h-20 transition-all duration-300">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
-            <a href="#"><img src="assets/img/averuz-ia-logo.png" alt="Averuz" class="h-9 w-auto"></a>
-            <div class="hidden md:flex items-center gap-8 font-display">
-                <a href="#solucoes" class="text-[#475569] hover:text-[#4A0A7E] font-medium transition-colors">Soluções</a>
-                <a href="#como-funciona" class="text-[#475569] hover:text-[#4A0A7E] font-medium transition-colors">Como funciona</a>
-                <a href="#planos" class="text-[#475569] hover:text-[#4A0A7E] font-medium transition-colors">Planos</a>
-                <a href="#contato" class="text-[#475569] hover:text-[#4A0A7E] font-medium transition-colors">Contato</a>
+    <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-[#E1E4E8] h-20">
+        <div class="max-w-7xl mx-auto px-4 h-full flex items-center justify-between">
+            <a href="#" class="flex items-center"><img src="assets/img/averuz-ia-logo.png" alt="Averuz" class="h-9"></a>
+            <nav class="hidden md:flex gap-8 text-[#475569] font-medium">
+                <a href="#solucoes" class="hover:text-[#4A0A7E]">Soluções</a>
+                <a href="#como-funciona" class="hover:text-[#4A0A7E]">Como funciona</a>
+                <a href="#planos" class="hover:text-[#4A0A7E]">Planos</a>
+                <a href="#contato" class="hover:text-[#4A0A7E]">Contato</a>
+            </nav>
+            <div class="hidden md:block">
+                <a href="#planos" class="btn-primary px-6 py-2.5 rounded-lg text-sm">Assinar agora</a>
             </div>
-            <div class="hidden md:block"><a href="#planos" class="btn-primary px-6 py-2.5 rounded-lg text-sm font-bold shadow-sm">Assinar agora</a></div>
-            <button id="mobile-menu-btn" class="md:hidden p-2 text-[#231961]"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
-        </nav>
-        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b border-[#E1E4E8] shadow-lg py-6 px-6 space-y-4 font-display">
-            <a href="#solucoes" class="block text-[#475569] font-medium">Soluções</a>
-            <a href="#como-funciona" class="block text-[#475569] font-medium">Como funciona</a>
-            <a href="#planos" class="block text-[#475569] font-medium">Planos</a>
-            <a href="#contato" class="block text-[#475569] font-medium">Contato</a>
-            <a href="#planos" class="btn-primary block w-full py-4 rounded-xl text-center">Assinar agora</a>
+            <button id="menu-btn" class="md:hidden p-2 text-[#231961]"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        </div>
+        <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-white border-b border-[#E1E4E8] p-4 flex flex-col gap-4 shadow-lg">
+            <a href="#solucoes" class="text-[#475569]">Soluções</a>
+            <a href="#como-funciona" class="text-[#475569]">Como funciona</a>
+            <a href="#planos" class="text-[#475569]">Planos</a>
+            <a href="#contato" class="text-[#475569]">Contato</a>
+            <a href="#planos" class="btn-primary py-3 rounded-lg text-center">Assinar agora</a>
         </div>
     </header>
 
-    <main id="main-content">
-        <section class="pt-40 pb-20 px-4 sm:px-6 lg:px-8 bg-[#F7F8FA] overflow-hidden relative">
-            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
-                <div class="text-center lg:text-left reveal active">
-                    <h1 class="font-display font-bold text-4xl sm:text-6xl text-[#1A1A1A] leading-tight mb-6">Atendimento que vende.<br><span class="text-[#4A0A7E]">Escala que cresce.</span></h1>
-                    <p class="text-lg sm:text-xl text-[#525252] leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0 font-light">Averuz conecta seus canais, automatiza conversas e transforma cada contato em oportunidade real de venda usando inteligência artificial treinada no seu negócio.</p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="#planos" class="btn-primary px-10 py-4 rounded-xl text-lg shadow-lg font-bold">Assinar agora</a>
-                        <a href="#planos" class="btn-secondary px-10 py-4 rounded-xl text-lg font-semibold">Ver planos</a>
+    <main class="pt-20">
+        <section class="pt-20 pb-20 px-4 bg-[#F7F8FA] overflow-hidden">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <h1 class="font-display font-bold text-4xl sm:text-6xl text-[#1A1A1A] leading-tight mb-6">
+                        Atendimento que vende.<br><span class="text-[#4A0A7E]">Escala que cresce.</span>
+                    </h1>
+                    <p class="text-lg text-[#525252] mb-8">Averuz conecta seus canais, automatiza conversas e transforma cada contato em oportunidade real de venda.</p>
+                    <div class="flex gap-4">
+                        <a href="#planos" class="btn-primary px-8 py-4 rounded-xl text-lg">Assinar agora</a>
+                        <a href="#planos" class="btn-secondary px-8 py-4 rounded-xl text-lg">Ver planos</a>
                     </div>
                 </div>
-
-                <div class="relative animate-float lg:block">
-                    <div class="bg-white rounded-2xl p-6 shadow-2xl border border-[#E8E8E8] relative z-10">
-                        <div class="flex items-center justify-between mb-5 pb-4 border-b border-[#F0F0F0]">
-                            <div class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-[#2FA37C] pulse-glow"></div><span class="text-sm font-medium text-[#525252]">Sistema ativo</span></div>
-                            <span class="text-xs text-[#9CA3AF]">Atualizado agora</span>
+                <div class="relative animate-float reveal" style="animation-delay: 0.2s;">
+                    <div class="bg-white rounded-2xl p-6 shadow-xl border border-[#E8E8E8]">
+                        <div class="flex justify-between items-center mb-6 pb-4 border-b border-[#F0F0F0]">
+                            <div class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-[#2FA37C] animate-pulse-glow"></div><span class="text-sm font-medium">Sistema ativo</span></div>
+                            <span class="text-xs text-gray-400">Atualizado agora</span>
                         </div>
-                        <div class="grid grid-cols-3 gap-3 mb-5 text-center">
-                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100"><p class="font-bold text-2xl">847</p><p class="text-[10px] text-slate-500 uppercase tracking-widest">Conversas</p></div>
-                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100"><p class="font-bold text-2xl text-[#2FA37C]">94%</p><p class="text-[10px] text-slate-500 uppercase tracking-widest">IA Resolveu</p></div>
-                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100"><p class="font-bold text-2xl text-[#D99A08]">R$ 48k</p><p class="text-[10px] text-slate-500 uppercase tracking-widest">Vendas</p></div>
+                        <div class="grid grid-cols-3 gap-3 mb-6">
+                            <div class="bg-[#F8F9FA] p-3 rounded-xl border text-center"><div class="font-bold text-xl">847</div><div class="text-[10px] uppercase text-gray-500">Conversas</div></div>
+                            <div class="bg-[#F8F9FA] p-3 rounded-xl border text-center"><div class="font-bold text-xl text-[#2FA37C]">94%</div><div class="text-[10px] uppercase text-gray-500">IA Resolveu</div></div>
+                            <div class="bg-[#F8F9FA] p-3 rounded-xl border text-center"><div class="font-bold text-xl text-[#D99A08]">R$ 48k</div><div class="text-[10px] uppercase text-gray-500">Vendas</div></div>
                         </div>
                         <div class="space-y-3">
-                            <div class="flex gap-3 bg-slate-50 p-3 rounded-lg opacity-60"><div class="w-8 h-8 rounded-full bg-[#4A0A7E]"></div><div class="flex-1"><div class="flex justify-between font-bold text-xs"><span>Maria Clara</span><span>IA respondeu</span></div><div class="h-2 w-1/2 bg-slate-200 rounded mt-2"></div></div></div>
-                            <div class="flex gap-3 bg-white p-3 rounded-lg border-2 border-[#D99A08]/30 shadow-md scale-105"><div class="w-8 h-8 rounded-full bg-[#D99A08] text-white flex items-center justify-center font-bold text-[10px] shrink-0">JL</div><div class="flex-1 min-w-0"><div class="flex justify-between font-bold text-xs"><span>Julia Lima</span><span class="text-[#2FA37C] font-bold">IA Respondendo em 2s</span></div><p class="text-xs text-[#1A1A1A] font-medium mt-1">Qual o valor do Enterprise?</p></div></div>
+                            <div class="flex gap-3 bg-[#F8F9FA] p-3 rounded-lg"><div class="w-8 h-8 rounded-full bg-[#4A0A7E] flex items-center justify-center text-white text-xs font-bold">MC</div><div class="flex-1"><div class="flex justify-between text-xs font-bold"><span>Maria Clara</span><span class="text-[#2FA37C]">IA respondeu</span></div><div class="text-xs text-gray-500 mt-1">Quero saber mais sobre o plano...</div></div></div>
+                            <div class="flex gap-3 bg-white p-3 rounded-lg border-2 border-[#D99A08]/20 shadow-md"><div class="w-8 h-8 rounded-full bg-[#D99A08] flex items-center justify-center text-white text-xs font-bold">JL</div><div class="flex-1"><div class="flex justify-between text-xs font-bold"><span>Julia Lima</span><span class="text-[#2FA37C]">IA respondendo...</span></div><div class="text-xs font-medium mt-1">Qual o valor do Enterprise?</div></div></div>
                         </div>
                     </div>
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-tr from-[#4A0A7E]/10 to-[#D99A08]/10 rounded-full blur-3xl -z-10"></div>
                 </div>
             </div>
         </section>
 
-        <section class="py-24 bg-slate-50">
-            <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
-                <div class="card-elevated rounded-2xl p-7 border-l-4 border-l-[#D10B68] space-y-4 reveal active">
-                    <div class="flex justify-between mb-2"><span class="text-sm font-bold text-[#D10B68]">⚠️ Sistema sobrecarregado</span><span class="text-xs">127 msgs não lidas</span></div>
-                    <div class="bg-white p-4 rounded-xl border border-slate-100 flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-[#D10B68]"></div><div class="flex-1"><p class="font-bold text-sm">Lead esperando há 4h</p><p class="text-xs text-[#D10B68]">Risco alto de perda</p></div></div>
-                    <div class="bg-white p-4 rounded-xl border border-slate-100 flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-[#D10B68]"></div><div class="flex-1"><p class="font-bold text-sm">Follow-up não enviado</p><p class="text-xs text-[#D10B68]">Cliente perdido</p></div></div>
-                    <div class="bg-white p-4 rounded-xl border border-slate-100 flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-[#D10B68]"></div><div class="flex-1"><p class="font-bold text-sm">Equipe sobrecarregada</p><p class="text-xs text-[#D10B68]">Tempo médio: 3h</p></div></div>
-                    <div class="bg-white p-4 rounded-xl border border-slate-100 flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-[#D10B68]"></div><div class="flex-1"><p class="font-bold text-sm">Cliente frustrado</p><p class="text-xs text-[#D10B68]">"Já perguntei isso 3 vezes..."</p></div></div>
+        <section class="py-20 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+                <div class="card-elevated rounded-2xl p-6 border-l-4 border-l-[#D10B68] reveal">
+                    <div class="flex justify-between mb-4"><span class="font-bold text-[#D10B68] flex gap-2">⚠️ Sistema sobrecarregado</span><span class="text-xs text-gray-500">127 não lidas</span></div>
+                    <div class="space-y-3">
+                        <div class="flex gap-3 items-center p-3 bg-white border rounded-lg"><div class="w-2 h-2 rounded-full bg-[#D10B68]"></div><div class="flex-1"><div class="text-sm font-bold">Lead esperando há 4h</div><div class="text-xs text-[#D10B68]">Risco de perda</div></div></div>
+                        <div class="flex gap-3 items-center p-3 bg-white border rounded-lg"><div class="w-2 h-2 rounded-full bg-[#D10B68]"></div><div class="flex-1"><div class="text-sm font-bold">Follow-up não enviado</div><div class="text-xs text-[#D10B68]">Cliente perdido</div></div></div>
+                        <div class="flex gap-3 items-center p-3 bg-white border rounded-lg"><div class="w-2 h-2 rounded-full bg-[#D10B68]"></div><div class="flex-1"><div class="text-sm font-bold">Equipe sobrecarregada</div><div class="text-xs text-[#D10B68]">Tempo médio: 3h</div></div></div>
+                        <div class="flex gap-3 items-center p-3 bg-white border rounded-lg"><div class="w-2 h-2 rounded-full bg-[#D10B68]"></div><div class="flex-1"><div class="text-sm font-bold">Cliente frustrado</div><div class="text-xs text-[#D10B68]">"Já perguntei 3 vezes..."</div></div></div>
+                    </div>
                 </div>
-                <div class="reveal active">
-                    <h2 class="font-display font-bold text-3xl sm:text-4xl text-[#231961] mb-8 leading-tight">O atendimento virou o gargalo do crescimento?</h2>
-                    <ul class="space-y-6 text-lg text-slate-600">
-                        <li class="flex items-start gap-4"><span class="text-[#D10B68] font-bold text-xl">✕</span> Leads sem resposta viram vendas perdidas.</li>
-                        <li class="flex items-start gap-4"><span class="text-[#D10B68] font-bold text-xl">✕</span> Follow-ups esquecidos que custam dinheiro.</li>
-                        <li class="flex items-start gap-4"><span class="text-[#D10B68] font-bold text-xl">✕</span> Equipe sobrecarregada sem tempo para vender.</li>
+                <div class="reveal">
+                    <h2 class="font-display font-bold text-3xl text-[#231961] mb-6">O atendimento virou o gargalo?</h2>
+                    <ul class="space-y-4 text-lg text-[#475569]">
+                        <li class="flex gap-3">✕ Leads sem resposta viram vendas perdidas.</li>
+                        <li class="flex gap-3">✕ Follow-ups esquecidos que custam dinheiro.</li>
+                        <li class="flex gap-3">✕ Equipe sobrecarregada sem tempo para vender.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section class="py-24 bg-[#231961] text-center text-white relative overflow-hidden bg-dots">
-            <div class="relative z-10 max-w-4xl mx-auto px-6 reveal active">
-                <h2 class="font-display font-bold text-3xl sm:text-5xl mb-8 leading-tight">Averuz não é mais um chatbot.<br><span class="text-[#D99A08]">É sua operação de vendas funcionando sozinha.</span></h2>
+        <section class="py-24 bg-[#231961] text-center text-white bg-dots relative">
+            <div class="max-w-4xl mx-auto px-4 relative z-10 reveal">
+                <h2 class="font-display font-bold text-4xl mb-8">Averuz não é mais um chatbot.<br><span class="text-[#D99A08]">É sua operação de vendas funcionando sozinha.</span></h2>
             </div>
         </section>
 
-        <section id="solucoes" class="py-24 bg-white">
+        <section id="solucoes" class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4">
-                <div class="text-center mb-20"><h2 class="font-display font-bold text-3xl sm:text-4xl text-[#231961]">O que você recebe</h2></div>
+                <h2 class="font-display font-bold text-3xl text-[#231961] text-center mb-16">O que você recebe</h2>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="card-elevated rounded-2xl p-8 border-l-4 border-l-[#4A0A7E] reveal active">
-                        <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center mb-6 text-[#4A0A7E]"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div>
-                        <h3 class="font-bold text-xl text-[#231961] mb-4">Central unificada</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">WhatsApp, Instagram, chat e email em uma única tela. Fim da troca de abas.</p>
+                    <div class="card-elevated p-8 rounded-2xl border-l-4 border-l-[#4A0A7E] reveal">
+                        <h3 class="font-bold text-xl text-[#231961] mb-3">Central Unificada</h3>
+                        <p class="text-sm text-[#475569]">WhatsApp, Instagram, chat e email em uma única tela.</p>
                     </div>
-                    <div class="card-elevated rounded-2xl p-8 border-l-4 border-l-[#D99A08] reveal active">
-                        <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-6 text-[#D99A08]"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
-                        <h3 class="font-bold text-xl text-[#231961] mb-4">Agente de IA</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">Responde perguntas, qualifica leads identificando intenção e encaminha conversas.</p>
+                    <div class="card-elevated p-8 rounded-2xl border-l-4 border-l-[#D99A08] reveal">
+                        <h3 class="font-bold text-xl text-[#231961] mb-3">Agente de IA</h3>
+                        <p class="text-sm text-[#475569]">Responde, qualifica e encaminha leads.</p>
                     </div>
-                    <div class="card-elevated rounded-2xl p-8 border-l-4 border-l-[#4A0A7E] reveal active">
-                        <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center mb-6 text-[#4A0A7E]"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
-                        <h3 class="font-bold text-xl text-[#231961] mb-4">CRM Completo</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">Cada lead vira um registro com histórico de conversas e etapa no funil visual.</p>
+                    <div class="card-elevated p-8 rounded-2xl border-l-4 border-l-[#4A0A7E] reveal">
+                        <h3 class="font-bold text-xl text-[#231961] mb-3">CRM Completo</h3>
+                        <p class="text-sm text-[#475569]">Histórico de conversas e etapa no funil.</p>
                     </div>
-                    <div class="card-elevated rounded-2xl p-8 reveal active"><h3 class="font-bold text-lg text-[#231961] mb-3">Funil Visual</h3><p class="text-sm text-slate-500">Veja onde cada lead está no processo.</p></div>
-                    <div class="card-elevated rounded-2xl p-8 reveal active"><h3 class="font-bold text-lg text-[#231961] mb-3">Automações</h3><p class="text-sm text-slate-500">Envie lembretes e mensagens programadas.</p></div>
-                    <div class="card-elevated rounded-2xl p-8 reveal active"><h3 class="font-bold text-lg text-[#231961] mb-3">Relatórios</h3><p class="text-sm text-slate-500">Acompanhe métricas de volume e conversão.</p></div>
+                    <div class="card-elevated p-8 rounded-2xl reveal"><h3 class="font-bold text-lg text-[#231961] mb-2">Funil Visual</h3><p class="text-sm text-[#475569]">Veja onde cada lead está.</p></div>
+                    <div class="card-elevated p-8 rounded-2xl reveal"><h3 class="font-bold text-lg text-[#231961] mb-2">Automações</h3><p class="text-sm text-[#475569]">Lembretes e mensagens programadas.</p></div>
+                    <div class="card-elevated p-8 rounded-2xl reveal"><h3 class="font-bold text-lg text-[#231961] mb-2">Relatórios</h3><p class="text-sm text-[#475569]">Métricas de volume e conversão.</p></div>
                 </div>
             </div>
         </section>
 
-        <section class="py-24 bg-slate-50">
-            <div class="max-w-7xl mx-auto px-4 text-center">
-                <h2 class="font-display font-bold text-3xl text-[#231961] mb-16">Resultados reais</h2>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="card-elevated p-8 rounded-2xl italic text-slate-700 text-sm">"O atendimento deixou de ser um gargalo. Agora é uma máquina de vendas."<div class="mt-4 not-italic font-bold text-slate-900">— Ricardo, CEO</div></div>
-                    <div class="card-elevated p-8 rounded-2xl italic text-slate-700 text-sm">"Hoje vendemos mais sem aumentar a equipe. ROI em 30 dias."<div class="mt-4 not-italic font-bold text-slate-900">— Ana, Diretora</div></div>
-                    <div class="card-elevated p-8 rounded-2xl italic text-slate-700 text-sm">"A IA organizou nossa operação. Finalmente temos visão do negócio."<div class="mt-4 not-italic font-bold text-slate-900">— Carlos, Fundador</div></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="planos" class="py-24 bg-white">
+        <section id="planos" class="py-20 bg-[#F7F8FA]">
             <div class="max-w-7xl mx-auto px-4">
-                <div class="text-center mb-16"><h2 class="font-display font-bold text-4xl text-[#231961]">Planos Transparentes</h2></div>
-                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
-                    <div class="card-elevated p-10 rounded-3xl flex flex-col reveal active">
-                        <div class="mb-8"><h3 class="font-bold text-2xl text-[#231961] mb-2">Averuz Essencial</h3><p class="text-xs text-slate-500 font-bold uppercase tracking-widest">Para começar</p></div>
-                        <div class="mb-10"><span class="text-5xl font-bold text-slate-900">R$ 197</span> <span class="text-slate-400">/mês</span></div>
-                        <ul class="space-y-4 mb-10 flex-grow text-slate-600 text-sm">
-                            <li>✓ 1 Usuário incluído</li><li>✓ CRM + Funil de vendas</li><li>✓ WhatsApp Integrado</li>
-                            <li class="text-[#D10B68] font-medium">✕ Sem Agente de IA</li>
+                <h2 class="font-display font-bold text-4xl text-[#231961] text-center mb-16">Planos Transparentes</h2>
+                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <div class="card-elevated p-8 rounded-3xl flex flex-col bg-white reveal">
+                        <h3 class="font-bold text-xl text-[#231961] mb-2">Essencial</h3>
+                        <div class="mb-6"><span class="text-4xl font-bold">R$ 197</span>/mês</div>
+                        <ul class="space-y-3 mb-8 text-sm text-[#475569] flex-grow">
+                            <li>✓ 1 usuário</li><li>✓ CRM + Funil</li><li>✓ WhatsApp Integrado</li>
+                            <li class="text-[#D10B68]">✕ Sem Agente de IA</li>
                         </ul>
-                        <div class="pt-8 border-t border-slate-100"><p class="text-[10px] font-bold uppercase text-slate-400 mb-2">Suporte</p><p class="text-xs text-slate-600">E-mail (Até 24h úteis)</p></div>
-                        <button class="btn-secondary w-full py-4 rounded-xl mt-10 font-bold">Teste Grátis</button>
+                        <div class="pt-4 border-t text-xs font-bold text-gray-400 uppercase">Suporte: Email (24h)</div>
+                        <button class="btn-secondary w-full py-3 rounded-xl mt-6">Teste Grátis</button>
                     </div>
-                    <div class="card-elevated p-10 rounded-3xl flex flex-col border-2 border-[#D99A08] relative transform lg:-translate-y-4 bg-white shadow-2xl scale-105 z-10 reveal active">
-                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#D99A08] text-white px-6 py-2 rounded-full text-xs font-bold uppercase shadow-xl">Mais Escolhido</div>
-                        <div class="mb-8"><h3 class="font-bold text-2xl text-[#231961] mb-2">Averuz Growth</h3><p class="text-xs text-slate-500 font-bold uppercase tracking-widest">Para escalar</p></div>
-                        <div class="mb-10"><span class="text-5xl font-bold text-slate-900">R$ 897</span> <span class="text-slate-400">/mês</span></div>
-                        <ul class="space-y-4 mb-10 flex-grow text-slate-600 text-sm">
-                            <li class="font-bold">✓ Tudo do Essencial</li><li class="font-bold">✓ 5 Usuários incluídos</li><li class="font-bold text-[#D99A08]">✓ Agente de IA Incluso</li><li class="font-bold">✓ Conversões PRO</li>
+                    <div class="card-elevated p-8 rounded-3xl flex flex-col bg-white border-2 border-[#D99A08] relative -translate-y-4 shadow-xl reveal">
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#D99A08] text-white px-4 py-1 rounded-full text-xs font-bold uppercase">Mais Escolhido</div>
+                        <h3 class="font-bold text-xl text-[#231961] mb-2">Growth</h3>
+                        <div class="mb-6"><span class="text-4xl font-bold">R$ 897</span>/mês</div>
+                        <ul class="space-y-3 mb-8 text-sm text-[#475569] flex-grow">
+                            <li>✓ Tudo do Essencial</li><li>✓ 5 usuários</li><li>✓ <strong>Agente IA Incluso</strong></li><li>✓ Relatórios</li>
                         </ul>
-                        <div class="pt-8 border-t border-slate-100"><p class="text-[10px] font-bold uppercase text-[#D99A08] mb-2">Suporte Prioritário</p><p class="text-sm text-slate-600">WhatsApp + SLA de 2h</p></div>
-                        <button class="btn-primary w-full py-4 rounded-xl mt-10 font-bold shadow-xl">Assinar Growth</button>
+                        <div class="pt-4 border-t text-xs font-bold text-[#D99A08] uppercase">Suporte: WhatsApp (2h)</div>
+                        <button class="btn-primary w-full py-3 rounded-xl mt-6">Assinar Growth</button>
                     </div>
-                    <div class="card-elevated p-10 rounded-3xl flex flex-col reveal active">
-                        <div class="mb-8"><h3 class="font-bold text-2xl text-[#231961] mb-2">Averuz Premium</h3><p class="text-xs text-slate-500 font-bold uppercase tracking-widest">Grandes times</p></div>
-                        <div class="mb-10"><span class="text-5xl font-bold text-slate-900">R$ 1.997</span> <span class="text-slate-400">/mês</span></div>
-                        <ul class="space-y-4 mb-10 flex-grow text-sm">
-                            <li class="font-bold">✓ Tudo do Growth</li><li class="font-bold">✓ 10 Usuários incluídos</li><li>✓ Treinamento VIP</li><li>✓ Suporte Consultivo</li>
+                    <div class="card-elevated p-8 rounded-3xl flex flex-col bg-white reveal">
+                        <h3 class="font-bold text-xl text-[#231961] mb-2">Premium</h3>
+                        <div class="mb-6"><span class="text-4xl font-bold">R$ 1.997</span>/mês</div>
+                        <ul class="space-y-3 mb-8 text-sm text-[#475569] flex-grow">
+                            <li>✓ Tudo do Growth</li><li>✓ 10 usuários</li><li>✓ Consultoria</li>
                         </ul>
-                        <div class="pt-8 border-t border-slate-100"><p class="text-[10px] font-bold uppercase text-[#4A0A7E] mb-2">Suporte VIP</p><p class="text-sm text-slate-600">Gerente de Conta Dedicado</p></div>
-                        <button class="btn-secondary w-full py-4 rounded-xl mt-10 font-bold">Assinar Premium</button>
+                        <div class="pt-4 border-t text-xs font-bold text-[#4A0A7E] uppercase">Suporte: Gerente VIP</div>
+                        <button class="btn-secondary w-full py-3 rounded-xl mt-6">Assinar Premium</button>
                     </div>
                 </div>
-                <div class="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto text-center reveal active">
-                    <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm"><p class="font-bold text-sm text-[#231961]">Usuário Extra</p><p class="text-xs text-slate-500 mt-1">R$ 79/mês</p></div>
-                    <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm"><p class="font-bold text-sm text-[#231961]">IA Adicional</p><p class="text-xs text-slate-500 mt-1">R$ 129/mês</p></div>
-                    <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm"><p class="font-bold text-sm text-[#231961]">Conversões PRO</p><p class="text-xs text-slate-500 mt-1">R$ 149/mês</p></div>
-                    <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm"><p class="font-bold text-sm text-[#231961]">Setup VIP</p><p class="text-xs text-slate-500 mt-1">Sob Consulta</p></div>
+                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-sm reveal">
+                    <div class="bg-white p-4 rounded-xl border"><span class="font-bold block text-[#231961]">Usuário Extra</span> R$ 79/mês</div>
+                    <div class="bg-white p-4 rounded-xl border"><span class="font-bold block text-[#231961]">IA Adicional</span> R$ 129/mês</div>
+                    <div class="bg-white p-4 rounded-xl border"><span class="font-bold block text-[#231961]">Conversões</span> R$ 149/mês</div>
+                    <div class="bg-white p-4 rounded-xl border"><span class="font-bold block text-[#231961]">Setup VIP</span> Consulte</div>
                 </div>
             </div>
         </section>
 
-        <footer id="contato" class="bg-[#0F172A] pt-24 pb-12 text-white border-t border-white/5">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
-                    <div>
-                        <h2 class="font-display font-bold text-2xl mb-8">Averuz</h2>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-8">Plataforma completa de atendimento e vendas com inteligência artificial para empresas que querem crescer.</p>
-                        <div class="flex gap-5">
-                            <a href="#" class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center hover:bg-[#4A0A7E] transition-all"><svg width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
-                            <a href="#" class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center hover:bg-[#D99A08] transition-all"><svg width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-                        </div>
-                    </div>
-                    <nav>
-                        <h4 class="font-bold mb-8 uppercase text-xs tracking-widest text-slate-500">Produto</h4>
-                        <ul class="space-y-5 text-slate-400 text-sm">
-                            <li><a href="#solucoes" class="hover:text-white">Funcionalidades</a></li>
-                            <li><a href="#planos" class="hover:text-white">Planos e Preços</a></li>
-                        </ul>
-                    </nav>
-                    <nav>
-                        <h4 class="font-bold mb-8 uppercase text-xs tracking-widest text-slate-500">Legal</h4>
-                        <ul class="space-y-5 text-slate-400 text-sm">
-                            <li><a href="#" class="hover:text-white">Termos de Uso</a></li>
-                            <li><a href="#" class="hover:text-white">Privacidade</a></li>
-                        </ul>
-                    </nav>
-                    <div>
-                        <h4 class="font-bold mb-8 uppercase text-xs tracking-widest text-slate-500">Novidades</h4>
-                        <form action="https://averuz.substack.com/api/v1/free" method="POST" class="flex flex-col gap-3">
-                            <input type="email" name="email" placeholder="E-mail corporativo" required class="bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-sm focus:outline-none focus:border-[#4A0A7E]">
-                            <button type="submit" class="bg-white/10 hover:bg-white/20 rounded-xl py-4 text-xs font-bold uppercase tracking-widest transition-all">Inscrever-se</button>
-                        </form>
-                    </div>
+        <footer id="contato" class="bg-[#0F172A] pt-16 pb-8 text-white">
+            <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <img src="assets/img/averuz-ia-logo.png" alt="Averuz" class="h-8 mb-4 brightness-0 invert">
+                    <p class="text-sm text-gray-400">Plataforma de inteligência artificial para vendas.</p>
                 </div>
-                <div class="border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center text-[11px] text-slate-600 gap-4">
-                    <p>© 2026 Averuz Tecnologia LTDA. Todos os direitos reservados. CNPJ: 58.345.111/0001-10</p>
-                    <a href="#" class="hover:text-white flex items-center gap-2 uppercase tracking-widest">Voltar ao topo <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg></a>
+                <div>
+                    <h4 class="font-bold mb-4">Produto</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#solucoes">Soluções</a></li>
+                        <li><a href="#planos">Planos</a></li>
+                    </ul>
                 </div>
+                <div>
+                    <h4 class="font-bold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#">Termos</a></li>
+                        <li><a href="#">Privacidade</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Novidades</h4>
+                    <form action="https://averuz.substack.com/api/v1/free" method="POST" class="flex flex-col gap-2">
+                        <input type="email" name="email" placeholder="E-mail" class="bg-white/10 p-2 rounded text-sm text-white">
+                        <button class="bg-white/20 p-2 rounded text-xs font-bold uppercase hover:bg-white/30">Assinar</button>
+                    </form>
+                </div>
+            </div>
+            <div class="max-w-7xl mx-auto px-4 border-t border-white/10 pt-8 text-center text-xs text-gray-500">
+                © 2026 Averuz. CNPJ: 58.345.111/0001-10
             </div>
         </footer>
     </main>
