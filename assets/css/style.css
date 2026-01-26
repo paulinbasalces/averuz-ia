@@ -1,4 +1,5 @@
 :root {
+    /* Cores Exatas do Canva */
     --bg-primary: #F7F8FA;
     --bg-card: #FFFFFF;
     --bg-authority: #231961;
@@ -28,11 +29,10 @@ h1, h2, h3, h4, h5, h6, .font-display { font-family: 'Sora', sans-serif; }
     color: var(--bg-authority);
     font-family: 'Sora', sans-serif;
     font-weight: 700;
-    transition: all 0.2s ease;
+    transition: transform 0.2s ease, filter 0.2s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 14px 0 rgba(217, 154, 8, 0.39);
 }
 .btn-primary:hover {
     transform: translateY(-2px);
@@ -55,39 +55,30 @@ h1, h2, h3, h4, h5, h6, .font-display { font-family: 'Sora', sans-serif; }
     color: #FFF;
 }
 
-/* Cards */
+/* Cards (Estilo Canva - Sombra Suave) */
 .card-elevated {
     background: var(--bg-card);
     border: 1px solid #E2E8F0;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    position: relative;
-    z-index: 10;
 }
 .card-elevated:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-/* Animações de Fundo (Blobs) - Restaurado do Original */
-@keyframes blob {
-    0% { transform: translate(0px, 0px) scale(1); }
-    33% { transform: translate(30px, -50px) scale(1.1); }
-    66% { transform: translate(-20px, 20px) scale(0.9); }
-    100% { transform: translate(0px, 0px) scale(1); }
-}
-.animate-blob {
-    animation: blob 7s infinite;
-}
-.animation-delay-2000 { animation-delay: 2s; }
-.animation-delay-4000 { animation-delay: 4s; }
-
-/* Utilitários de Animação */
+/* Animações Originais */
 @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
 }
 .animate-float { animation: float 6s ease-in-out infinite; }
+
+@keyframes pulse-glow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.1); }
+}
+.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
 
 @keyframes fade-in-up {
     from { opacity: 0; transform: translateY(20px); }
@@ -95,6 +86,7 @@ h1, h2, h3, h4, h5, h6, .font-display { font-family: 'Sora', sans-serif; }
 }
 .animate-fade-in-up { animation: fade-in-up 0.6s ease-out forwards; opacity: 0; }
 
+/* Utilitários */
 .delay-100 { animation-delay: 0.1s; }
 .delay-200 { animation-delay: 0.2s; }
 .delay-300 { animation-delay: 0.3s; }
