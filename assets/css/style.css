@@ -1,5 +1,5 @@
 /* =========================================
-   1. Design Tokens & Variáveis 
+   1. Design Tokens & Variáveis [cite: 8-9]
    ========================================= */
 :root {
     --bg-primary: #F7F8FA;
@@ -17,7 +17,7 @@
 }
 
 /* =========================================
-   2. Reset & Tipografia [cite: 6-10]
+   2. Tipografia & Reset [cite: 6-10]
    ========================================= */
 html { scroll-behavior: smooth; }
 body {
@@ -25,6 +25,7 @@ body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 h1, h2, h3, h4, h5, h6, .font-display { font-family: 'Sora', sans-serif; }
 
@@ -60,6 +61,7 @@ h1, h2, h3, h4, h5, h6, .font-display { font-family: 'Sora', sans-serif; }
     background: var(--bg-card);
     border: 1px solid var(--border-subtle);
     box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* =========================================
@@ -71,8 +73,8 @@ h1, h2, h3, h4, h5, h6, .font-display { font-family: 'Sora', sans-serif; }
 @keyframes pulse-glow { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
 .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
 
-@keyframes fade-in-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.animate-fade-in-up { opacity: 0; animation: fade-in-up 0.8s ease-out forwards; }
+@keyframes fade-in-up { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.animate-fade-in-up { opacity: 0; animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
 @keyframes subtle-flow { 0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.03; } 33% { transform: translate(20px, -15px) scale(1.05); opacity: 0.04; } 66% { transform: translate(-15px, 10px) scale(0.98); opacity: 0.025; } }
 @keyframes ambient-flow-1 { 0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.04; } 25% { transform: translate(15px, -10px) scale(1.03); opacity: 0.035; } 50% { transform: translate(25px, 5px) scale(1.05); opacity: 0.03; } 75% { transform: translate(10px, 15px) scale(1.02); opacity: 0.0375; } }
@@ -82,3 +84,13 @@ h1, h2, h3, h4, h5, h6, .font-display { font-family: 'Sora', sans-serif; }
 .animate-delay-1 { animation-delay: 0.2s; }
 .animate-delay-2 { animation-delay: 0.4s; }
 .animate-delay-3 { animation-delay: 0.6s; }
+.animate-delay-4 { animation-delay: 0.8s; }
+
+/* Acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

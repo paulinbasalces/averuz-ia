@@ -1,10 +1,11 @@
 /* =========================================
-   Funcionalidades Nativa (Sem Canva SDK)
+   Funcionalidades Nativa (Nível Profissional)
    ========================================= */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Menu Mobile [cite: 194-197]
-    const menuBtn = document.getElementById('mobile-menu-button');
+    
+    // 1. Menu Mobile Toggle [cite: 194-197]
+    const menuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
 
     if (menuBtn && mobileMenu) {
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Scroll Suave para Âncoras [cite: 198]
+    // 2. Scroll Suave para Âncoras [cite: 198]
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -38,8 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Observer para Animações ao Rolar a Tela [cite: 202-204]
-    const observerOptions = { threshold: 0.1 };
+    // 3. Observer para Animações (Scroll) [cite: 202-204]
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
