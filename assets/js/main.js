@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Menu Mobile [cite: 194-197]
+    // 1. Menu Mobile
     const menuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
 
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Scroll Animations (Intersection Observer) [cite: 202-204]
+    // 2. Intersection Observer (Animações de Scroll)
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
