@@ -1,58 +1,43 @@
-/* =========================================
-   1. Variáveis & Tokens (Fidelidade Máxima)
-   ========================================= */
 :root {
     --bg-primary: #F7F8FA;
     --bg-card: #FFFFFF;
     --bg-authority: #231961;
-    
     --brand-primary: #4A0A7E;
-    --brand-accent: #D99A08; /* Dourado Averuz */
-    
+    --brand-accent: #D99A08;
     --success: #2FA37C;
     --error: #D10B68;
-    
     --text-primary: #0F172A;
     --text-secondary: #475569;
-    --text-light: #FFFFFF;
-    
-    --border-subtle: #E2E8F0;
 }
 
-/* =========================================
-   2. Reset & Tipografia
-   ========================================= */
 html { scroll-behavior: smooth; }
+
 body {
     font-family: 'Lexend', sans-serif;
     background-color: var(--bg-primary);
     color: var(--text-primary);
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6, .font-display { font-family: 'Sora', sans-serif; }
 
-/* =========================================
-   3. Componentes (Botões e Cards)
-   ========================================= */
+/* Botões */
 .btn-primary {
     background-color: var(--brand-accent);
     color: var(--bg-authority);
     font-family: 'Sora', sans-serif;
     font-weight: 700;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 4px 14px 0 rgba(217, 154, 8, 0.39);
 }
 .btn-primary:hover {
-    filter: brightness(1.05);
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px -5px rgba(217, 154, 8, 0.4);
+    filter: brightness(1.1);
 }
-.btn-primary:active { transform: translateY(0); }
 
 .btn-secondary {
     background: transparent;
@@ -60,34 +45,31 @@ h1, h2, h3, h4, h5, h6, .font-display { font-family: 'Sora', sans-serif; }
     border: 2px solid var(--brand-primary);
     font-family: 'Sora', sans-serif;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
 }
 .btn-secondary:hover {
     background: var(--brand-primary);
-    color: var(--text-light);
-    transform: translateY(-2px);
+    color: #FFF;
 }
 
-/* Card Elevado com Sombra "Soft" (Estilo Canva) */
+/* Cards */
 .card-elevated {
     background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    z-index: 10;
 }
 .card-elevated:hover {
+    transform: translateY(-4px);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    border-color: #CBD5E1;
 }
 
-/* =========================================
-   4. Animações Complexas (Backgrounds)
-   ========================================= */
-
-/* Movimento Orgânico das "Blobs" de fundo */
+/* Animações de Fundo (Blobs) - Restaurado do Original */
 @keyframes blob {
     0% { transform: translate(0px, 0px) scale(1); }
     33% { transform: translate(30px, -50px) scale(1.1); }
@@ -100,49 +82,19 @@ h1, h2, h3, h4, h5, h6, .font-display { font-family: 'Sora', sans-serif; }
 .animation-delay-2000 { animation-delay: 2s; }
 .animation-delay-4000 { animation-delay: 4s; }
 
-/* Flutuação Dashboard */
-@keyframes float-dashboard {
+/* Utilitários de Animação */
+@keyframes float {
     0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-8px); }
+    50% { transform: translateY(-10px); }
 }
-.animate-float {
-    animation: float-dashboard 6s ease-in-out infinite;
-}
+.animate-float { animation: float 6s ease-in-out infinite; }
 
-/* Pulso de Status */
-@keyframes pulse-ring {
-    0% { transform: scale(0.8); opacity: 0.5; }
-    100% { transform: scale(2); opacity: 0; }
-}
-.pulse-ring::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background-color: inherit;
-    border-radius: 50%;
-    animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
-}
-
-/* Entradas de Elementos */
 @keyframes fade-in-up {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
-.animate-fade-in-up {
-    animation: fade-in-up 0.8s ease-out forwards;
-    opacity: 0;
-}
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
+.animate-fade-in-up { animation: fade-in-up 0.6s ease-out forwards; opacity: 0; }
 
-/* Redução de Movimento */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-}
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }

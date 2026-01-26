@@ -1,57 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // =========================================
-    // Mobile Menu Logic
-    // =========================================
+    // Menu Mobile
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
-    const links = menu.querySelectorAll('a');
-
+    
     if (btn && menu) {
-        // Toggle menu open/close
         btn.addEventListener('click', () => {
-            const isHidden = menu.classList.contains('hidden');
-            if (isHidden) {
-                menu.classList.remove('hidden');
-                btn.setAttribute('aria-expanded', 'true');
-            } else {
-                menu.classList.add('hidden');
-                btn.setAttribute('aria-expanded', 'false');
-            }
+            menu.classList.toggle('hidden');
         });
 
-        // Close menu when clicking any link
-        links.forEach(link => {
+        // Fechar ao clicar em links
+        menu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 menu.classList.add('hidden');
-                btn.setAttribute('aria-expanded', 'false');
             });
-        });
-
-        // Close menu when resizing to desktop
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 768) {
-                menu.classList.add('hidden');
-                btn.setAttribute('aria-expanded', 'false');
-            }
         });
     }
 
-    // =========================================
-    // Smooth Scroll for older browsers (Optional)
-    // =========================================
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+    // Newsletter (Simulação visual apenas)
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+        form.addEventListener('submit', (e) => {
             e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
+            const btn = form.querySelector('button');
+            const originalText = btn.innerText;
             
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
+            btn.innerText = 'Enviando...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerText = 'Sucesso!';
+                btn.style.backgroundColor = '#2FA37C';
+                
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                    btn.style.backgroundColor = '';
+                    form.reset();
+                }, 3000);
+            }, 1000);
         });
     });
 });
