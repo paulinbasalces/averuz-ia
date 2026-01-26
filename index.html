@@ -3,19 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Averuz | Tecnologia que aproxima</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css"> </head>
-<body class="bg-[#F7F8FA] text-[#0F172A] font-body antialiased">
+    <title>Averuz | Tecnologia que aproxima.</title>
     
-    <a href="#main-content" class="sr-only focus:not-sr-only">Pular para o conteúdo principal</a>
+    <meta name="description" content="Plataforma completa de atendimento e vendas com inteligência artificial para empresas que querem crescer.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-[#F7F8FA] text-[#0F172A] font-body antialiased overflow-x-hidden">
 
-    <header class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-[#E1E4E8]">
-        </header>
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:bg-[#4A0A7E] focus:text-white focus:p-4 focus:z-50 focus:rounded-lg">
+        Pular para o conteúdo principal
+    </a>
 
-    <main id="main-content">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-[#E1E4E8]">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Navegação Principal">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <div class="flex items-center">
+                    <a href="/" class="font-display font-bold text-2xl text-[#231961] focus:outline-2 focus:outline-offset-2 focus:outline-[#4A0A7E] rounded-md">
+                        AVERUZ
+                        <span class="sr-only">Página Inicial</span>
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#solucoes" class="text-[#475569] hover:text-[#4A0A7E] font-medium transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-[#4A0A7E] rounded-md">Soluções</a>
+                    <a href="#como-funciona" class="text-[#475569] hover:text-[#4A0A7E] font-medium transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-[#4A0A7E] rounded-md">Como funciona</a>
+                    <a href="#planos" class="text-[#475569] hover:text-[#4A0A7E] font-medium transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-[#4A0A7E] rounded-md">Planos</a>
+                    <a href="#contato" class="text-[#475569] hover:text-[#4A0A7E] font-medium transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-[#4A0A7E] rounded-md">Contato</a>
+                </div>
+
+                <div class="hidden md:block">
+                    <a href="#planos" class="btn-primary px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-sm sm:text-base inline-block">
+                        Assinar agora
+                    </a>
+                </div>
+                
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-[#231961]" aria-label="Abrir menu">
+                   <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content" class="w-full pt-20">
+        <section class="pt-24 sm:pt-32 pb-16 px-4 bg-[#F7F8FA]">
+            <div class="max-w-7xl mx-auto text-center">
+                <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-[#1A1A1A] mb-6 animate-fade-in-up">
+                    Atendimento que vende.<br>
+                    <span class="text-[#4A0A7E]">Escala que cresce.</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-[#525252] mb-10 max-w-2xl mx-auto animate-fade-in-up animate-delay-1">
+                    Averuz conecta seus canais, automatiza conversas e transforma cada contato em oportunidade real.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animate-delay-2">
+                    <button class="btn-primary px-10 py-4 rounded-xl text-lg shadow-lg">Assinar agora</button>
+                    <button class="btn-secondary px-10 py-4 rounded-xl text-lg">Ver planos</button>
+                </div>
+            </div>
+        </section>
+        
         </main>
 
-    </body>
+    <footer class="bg-[#0F172A] text-white py-12 text-center">
+        <p>© 2026 Averuz. Tecnologia acessível.</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
 </html>

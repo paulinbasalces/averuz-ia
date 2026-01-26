@@ -1,1 +1,66 @@
-style.css
+/* Variáveis de Design Tokens [cite: 7] */
+:root {
+  --bg-authority: #231961;
+  --brand-primary: #4A0A7E;
+  --brand-accent: #D99A08;
+  --text-primary: #0F172A;
+  --text-light: #FFFFFF;
+}
+
+/* Tipografia Base */
+.font-body { font-family: 'Lexend', sans-serif; }
+.font-display { font-family: 'Sora', sans-serif; }
+
+/* Botões Personalizados [cite: 10-18] */
+.btn-primary {
+  background: var(--brand-accent);
+  color: var(--bg-authority);
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+.btn-primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+.btn-primary:focus {
+  outline: 3px solid var(--brand-accent);
+  outline-offset: 2px;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--brand-primary);
+  border: 2px solid var(--brand-primary);
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.btn-secondary:hover {
+  background: var(--brand-primary);
+  color: var(--text-light);
+}
+
+/* Animações Core [cite: 41-49] */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.animate-delay-1 { animation-delay: 0.2s; }
+.animate-delay-2 { animation-delay: 0.4s; }
+
+/* Redução de Movimento (Acessibilidade) [cite: 60] */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+} 
