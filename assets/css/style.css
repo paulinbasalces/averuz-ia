@@ -1,32 +1,20 @@
 /* =========================================
-   1. DESIGN TOKENS (Fidelidade Canva)
+   1. DESIGN TOKENS (Baseado no Source)
    ========================================= */
 :root {
     --bg-primary: #F7F8FA;
     --bg-card: #FFFFFF;
     --bg-authority: #231961;
-    --bg-authority-soft: #E6E8F5;
-    
     --brand-primary: #4A0A7E;
     --brand-accent: #D99A08;
-    
     --success: #2FA37C;
     --error: #D10B68;
-    
     --text-primary: #0F172A;
     --text-secondary: #475569;
-    --text-light: #FFFFFF;
-    
     --border-subtle: #E1E4E8;
 }
 
-/* =========================================
-   2. BASE & ACESSIBILIDADE
-   ========================================= */
-html { 
-    scroll-behavior: smooth; 
-}
-
+html { scroll-behavior: smooth; }
 body {
     font-family: 'Lexend', sans-serif;
     background-color: var(--bg-primary);
@@ -34,37 +22,10 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
 }
-
-h1, h2, h3, h4, h5, h6, .font-display { 
-    font-family: 'Sora', sans-serif; 
-}
-
-/* Foco visível para Acessibilidade (WCAG) */
-:focus-visible {
-    outline: 3px solid var(--brand-primary);
-    outline-offset: 2px;
-}
-
-/* Skip Link (Acessibilidade) */
-.skip-link {
-    position: absolute;
-    top: -9999px;
-    left: 1rem;
-    z-index: 9999;
-    background: var(--brand-primary);
-    color: white;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    font-weight: bold;
-    text-decoration: none;
-    transition: top 0.2s;
-}
-.skip-link:focus {
-    top: 1rem;
-}
+h1, h2, h3, h4, h5, h6, .font-display { font-family: 'Sora', sans-serif; }
 
 /* =========================================
-   3. COMPONENTES
+   2. COMPONENTES
    ========================================= */
 .btn-primary {
     background-color: var(--brand-accent);
@@ -76,11 +37,7 @@ h1, h2, h3, h4, h5, h6, .font-display {
     align-items: center;
     justify-content: center;
 }
-.btn-primary:hover {
-    filter: brightness(1.1);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(217, 154, 8, 0.3);
-}
+.btn-primary:hover { filter: brightness(1.1); transform: translateY(-2px); }
 
 .btn-secondary {
     background: transparent;
@@ -93,65 +50,29 @@ h1, h2, h3, h4, h5, h6, .font-display {
     align-items: center;
     justify-content: center;
 }
-.btn-secondary:hover {
-    background: var(--brand-primary);
-    color: var(--text-light);
-}
+.btn-secondary:hover { background: var(--brand-primary); color: #FFF; }
 
 .card-elevated {
     background: var(--bg-card);
     border: 1px solid var(--border-subtle);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.card-elevated:hover {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    border-color: #CBD5E1;
-}
+.card-elevated:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
 
 /* =========================================
-   4. ANIMAÇÕES (Source Canva)
+   3. FÍSICA DE ANIMAÇÃO (Source Canva)
    ========================================= */
-@keyframes float { 
-    0%, 100% { transform: translateY(0px); } 
-    50% { transform: translateY(-10px); } 
-}
+@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+@keyframes pulse-glow { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.05); } }
+@keyframes fade-in-up { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes subtle-flow { 0%, 100% { transform: translate(0, 0); opacity: 0.03; } 50% { transform: translate(20px, -15px); opacity: 0.04; } }
+@keyframes ambient-flow { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(20px, -20px) scale(1.1); } 100% { transform: translate(0,0) scale(1); } }
+
 .animate-float { animation: float 6s ease-in-out infinite; }
-
-@keyframes pulse-glow { 
-    0%, 100% { opacity: 1; transform: scale(1); } 
-    50% { opacity: 0.6; transform: scale(1.05); } 
-}
 .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.active { opacity: 1; transform: translateY(0); }
 
-@keyframes fade-in-up { 
-    from { opacity: 0; transform: translateY(20px); } 
-    to { opacity: 1; transform: translateY(0); } 
-}
-.animate-fade-in-up { opacity: 0; animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-
-/* Gatilhos de Scroll */
-.reveal { 
-    opacity: 0; 
-    transform: translateY(30px); 
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
-}
-.reveal.active { 
-    opacity: 1; 
-    transform: translateY(0); 
-}
-
-/* Utilitários de fundo */
-.bg-dots { 
-    background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z" fill="%23fff" fill-opacity="0.05"/%3E%3C/svg%3E'); 
-}
-
-/* Preferências de Movimento Reduzido (Acessibilidade) */
-@media (prefers-reduced-motion: reduce) {
-    *, ::before, ::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-}
+/* Utilitários */
+.bg-dots { background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z" fill="%23fff" fill-opacity="0.05"/%3E%3C/svg%3E'); }
